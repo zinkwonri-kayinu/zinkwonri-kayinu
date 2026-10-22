@@ -24,18 +24,17 @@ I build systems that find the right companies, check the data before spending mo
 | [**tam-builder**](https://github.com/zinkwonri-kayinu/tam-builder) | Self-refining market map: learns which signals predict a win from closed deals, re-tiers every account, rebalances territories | Node.js · Claude Code · Clay |
 | [**ai-outreach-agent**](https://github.com/zinkwonri-kayinu/ai-outreach-agent) | Email or domain in → research, best-fit offer, email + DM out. A rules engine rejects copy that breaks the style guide | Claude Code · Node.js |
 | [**icp-research-agent**](https://github.com/zinkwonri-kayinu/icp-research-agent) | Works out who a company really sells to from case studies and reviews. Every trait is counted, not guessed | Claude Code · Python |
-| [**n8n-workflows**](https://github.com/zinkwonri-kayinu/n8n-workflows) | Reply classifiers for email + LinkedIn, and a job-signal pipeline that takes ~3,300 job posts a day down to 259 prospects | n8n · Clay · Claude |
+| [**n8n-workflows**](https://github.com/zinkwonri-kayinu/n8n-workflows) | Reply sorter with AI drafts and out-of-office follow-ups, Calendly → Clay → Claude meeting briefs, and a fully automated gift business | n8n · Clay · Claude |
 
 ### 🔗 How they fit together
 
 ```mermaid
 flowchart LR
     A[icp-research-agent<br/>who to target] --> B[tam-builder<br/>every account, scored]
-    S[job-signal-pipeline<br/>who's ready now] --> C
     B --> C[lead-qualification-pipeline<br/>is this lead real?]
     C --> D[ai-outreach-agent<br/>what to say]
     D --> E[multichannel-outbound-orchestrator<br/>email + LinkedIn]
-    E --> F[n8n reply workflows<br/>who said yes]
+    E --> F[reply-sorter-router<br/>who said yes]
     F -. closed deals .-> B
 ```
 
